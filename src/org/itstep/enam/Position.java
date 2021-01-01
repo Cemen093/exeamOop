@@ -1,4 +1,4 @@
-package org.itstep;
+package org.itstep.enam;
 
 public enum Position {
     CHEF("шеф"), PROGRAMMER("программист"), TESTER("тестер"), CLEANER("уборщик");

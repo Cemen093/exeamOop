@@ -1,6 +1,7 @@
 package org.itstep;
 
-import org.itstep.exeption.ExceptionDepartmentNotFound;
+import org.itstep.enam.Position;
+import org.itstep.enam.Sex;
 
 import java.util.*;
 
@@ -19,18 +20,18 @@ public class Organization {
         departments = new ArrayList<>();
     }
 
-    public void addNewEmployee(Employee employee) throws ExceptionDepartmentNotFound {
+    public void addNewEmployee(Employee employee) {
         //принимать на работу новых сотрудников
         getDepartmentForName(employee.getDepartment().getNameDepartment()).addEmployee(employee);
     }
 
-    public Department getDepartmentForName(String nameDepartment) throws ExceptionDepartmentNotFound {
+    public Department getDepartmentForName(String nameDepartment) {
         for (int i = 0; i < departments.size(); i++) {
             if (departments.get(i).getNameDepartment().equals(nameDepartment)) {
                 return departments.get(i);
             }
         }
-        throw new ExceptionDepartmentNotFound("Департамент не найден");
+        throw null;
     }
 
     public void addNewDepartment(String name) {
@@ -59,11 +60,11 @@ public class Organization {
                 departments;
     }
 
-    public boolean toFireEmployee(Employee e){
+    public boolean toFireEmployee(Employee e) {
         List<Employee> employees;
         for (Department d :
                 departments) {
-            if (d.toFireEmployee(e)){
+            if (d.toFireEmployee(e)) {
                 return true;
             }
         }
@@ -74,9 +75,9 @@ public class Organization {
         Employee employee;
         for (Department d :
                 departments) {
-            if (d.isEmployeeExist(e)){
+            if (d.isEmployeeExist(e)) {
                 employee = d.getEmployee(e);
-                if (employee != null){
+                if (employee != null) {
                     return employee;
                 }
             }
@@ -86,10 +87,9 @@ public class Organization {
 
     public void changeDepartmentEmployee(Employee employee, String nameNewDepartment) {
         employee.getDepartment().toFireEmployee(employee);
-        try {
-            getDepartmentForName(nameNewDepartment).addEmployee(employee);
-        } catch (ExceptionDepartmentNotFound exceptionDepartmentNotFound) {
-            System.out.println("Ой, департамент не найден");
+        Department d = getDepartmentForName(nameNewDepartment);
+        if (d != null) {
+            d.addEmployee(employee);
         }
     }
 
@@ -99,7 +99,7 @@ public class Organization {
                 getAverageSalaryDepartments()) {
             averageSalary += num;
         }
-        averageSalary = departments.size() != 0 ? averageSalary / departments.size(): 0;
+        averageSalary = departments.size() != 0 ? averageSalary / departments.size() : 0;
         return averageSalary;
     }
 
@@ -111,7 +111,7 @@ public class Organization {
         return averageSalaryDepartments;
     }
 
-    public List<Employee> getAllEmployee(){
+    public List<Employee> getAllEmployee() {
         List<Employee> employees = new ArrayList<>();
         for (Department d :
                 departments) {
@@ -154,7 +154,7 @@ public class Organization {
     public void printEmployeesForNameChief(String nameChief) {
         List<Employee> employees = new ArrayList<>();
         for (Department department : departments) {
-            if (department.getChief().getName().equals(nameChief)){
+            if (department.getChief().getName().equals(nameChief)) {
                 employees = department.getEmployees();//у первого шефа с именем?
                 return;
             }
@@ -172,7 +172,7 @@ public class Organization {
         for (Department d :
                 departments) {
             System.out.println();
-            printReport(d.getChief() != null ? List.of(d.getChief()): new ArrayList<>(), d.getNameDepartment(), "Шеф");
+            printReport(d.getChief() != null ? List.of(d.getChief()) : new ArrayList<>(), d.getNameDepartment(), "Шеф");
             printReport(d.getEmployees(), "Сотрудники");
         }
     }
@@ -182,13 +182,17 @@ public class Organization {
         employees.sort(new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
-                if (o2.getSalary() > o1.getSalary()){return 1;}
-                if (o2.getSalary() < o1.getSalary()){return -1;}
+                if (o2.getSalary() > o1.getSalary()) {
+                    return 1;
+                }
+                if (o2.getSalary() < o1.getSalary()) {
+                    return -1;
+                }
                 return 0;
             }
         });
         int newLength = employees.size();
-        if (newLength > 10){
+        if (newLength > 10) {
             newLength = 10;
         }
 
@@ -196,18 +200,22 @@ public class Organization {
         printReport(employees, "Топ 10 сотрудников по заработной плате");
     }
 
-    public void printTopTenEmployeesByYearsInTheOrganization(){
+    public void printTopTenEmployeesByYearsInTheOrganization() {
         List<Employee> employees = getAllEmployee();
         employees.sort(new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {// FIXME: 31.12.2020 не верное сравнение дат
-                if (CURRENT_DATA[2] - o2.getHiringDate()[2] > (CURRENT_DATA[2] - o1.getHiringDate()[2])){return 1;}
-                if (CURRENT_DATA[2] - o2.getHiringDate()[2] < (CURRENT_DATA[2] - o1.getHiringDate()[2])){return -1;}
+                if (CURRENT_DATA[2] - o2.getHiringDate()[2] > (CURRENT_DATA[2] - o1.getHiringDate()[2])) {
+                    return 1;
+                }
+                if (CURRENT_DATA[2] - o2.getHiringDate()[2] < (CURRENT_DATA[2] - o1.getHiringDate()[2])) {
+                    return -1;
+                }
                 return 0;
             }
         });
         int newLength = employees.size();
-        if (newLength > 10){
+        if (newLength > 10) {
             newLength = 10;
         }
 
@@ -215,7 +223,7 @@ public class Organization {
         printReport(employees, "Топ 10 сотрудников по выслуге лет");
     }
 
-    private void printReport(List<Employee> employees, String... headings){
+    private void printReport(List<Employee> employees, String... headings) {
         for (String heading :
                 headings) {
 
@@ -223,9 +231,9 @@ public class Organization {
             System.out.format("| %-135s |\n", heading);
         }
         System.out.println(dividingRow);
-        if (employees.isEmpty()){
+        if (employees.isEmpty()) {
             System.out.format("| %-135s |\n", "Сотрудники не найдены");
-        }else {
+        } else {
             for (Employee e :
                     employees) {
                 System.out.print(e.getString());
@@ -245,7 +253,7 @@ public class Organization {
         System.out.println(dividingRow);
     }
 
-    public static Organization getWorkOrganization(){
+    public static Organization getWorkOrganization() {
         final Random random = new Random();
         Organization org = new Organization("Кукушкино", "https://qna.habr.com/");
         String[] depName = {"Департамент_1", "Департамент_2", "Департамент_3", "Департамент_4"};
@@ -256,18 +264,14 @@ public class Organization {
         org.addNewDepartment(depName[3]);
 
         for (int i = 0; i < 50; i++) {
-            try {
-                int pos = random.nextInt(Position.values().length);
-                org.addNewEmployee(new Employee(empName[random.nextInt(depName.length)],
-                        random.nextInt(29) + "." + random.nextInt(13) + "." + (random.nextInt(30) + 1980),
-                        "+380" + random.nextInt(1000) + random.nextInt(1000) + random.nextInt(1000)
-                        , new int[]{random.nextInt(29), random.nextInt(13), random.nextInt(10) + 2010},
-                        (random.nextInt(7) + 3) * 10000, random.nextInt(2) == 1 ? Sex.MEN: Sex.WOMEN,
-                        pos == 0 ? Position.CHEF: pos == 1 ? Position.PROGRAMMER: pos == 2 ? Position.TESTER: Position.CLEANER,
-                        org.getDepartmentForName(depName[random.nextInt(depName.length)])));
-            } catch (ExceptionDepartmentNotFound exceptionDepartmentNotFound) {
-                exceptionDepartmentNotFound.printStackTrace();
-            }
+            int pos = random.nextInt(Position.values().length);
+            org.addNewEmployee(new Employee(empName[random.nextInt(depName.length)],
+                    random.nextInt(29) + "." + random.nextInt(13) + "." + (random.nextInt(30) + 1980),
+                    "+380" + random.nextInt(1000) + random.nextInt(1000) + random.nextInt(1000)
+                    , new int[]{random.nextInt(29), random.nextInt(13), random.nextInt(10) + 2010},
+                    (random.nextInt(7) + 3) * 10000, random.nextInt(2) == 1 ? Sex.MEN : Sex.WOMEN,
+                    pos == 0 ? Position.CHEF : pos == 1 ? Position.PROGRAMMER : pos == 2 ? Position.TESTER : Position.CLEANER,
+                    org.getDepartmentForName(depName[random.nextInt(depName.length)])));
         }
         return org;
     }

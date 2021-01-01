@@ -1,5 +1,8 @@
 package org.itstep;
 
+import org.itstep.enam.Position;
+import org.itstep.enam.Sex;
+
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.Objects;

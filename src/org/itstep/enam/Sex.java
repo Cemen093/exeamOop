@@ -1,4 +1,4 @@
-package org.itstep;
+package org.itstep.enam;
 
 public enum Sex {
     MEN("мужской"), WOMEN("женский");

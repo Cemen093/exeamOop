@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="2524.75" y="681.0">org.itstep.Main.ChangeInformationEmployee.CommandChangeInf</node>
+    <node x="3412.0" y="535.0">org.itstep.Main.ToFireEmployee</node>
+    <node x="1656.0" y="805.0">org.itstep.Main.ChangeInformationEmployee.ComChangeName</node>
+    <node x="3154.0" y="523.5">org.itstep.Main.AddNewEmployee</node>
+    <node x="1731.4166666666667" y="535.0">org.itstep.Main.Exit</node>
+    <node x="1212.0" y="805.0">org.itstep.Main.PrintReport.ComPrintTopTenEmployeesByYearsInTheOrganization</node>
+    <node x="2628.0" y="535.0">org.itstep.Main.ChangeInformationEmployee</node>
+    <node x="2896.0" y="535.0">org.itstep.Main.CommandNotFound</node>
+    <node x="2920.0" y="805.0">org.itstep.Main.ChangeInformationEmployee.ComChangeContactNumber</node>
+    <node x="381.5" y="134.0">org.itstep.Main.COMMAND</node>
+    <node x="1972.0" y="805.0">org.itstep.Main.ChangeInformationEmployee.ComChangeSex</node>
+    <node x="3552.0" y="805.0">org.itstep.Main.ChangeInformationEmployee.ComChangeSalary</node>
+    <node x="300.0" y="513.0">org.itstep.Main.FindEmployee</node>
+    <node x="558.0" y="805.0">org.itstep.Main.PrintReport.ComPrintAverageSalary</node>
+    <node x="839.0" y="904.0">org.itstep.Department</node>
+    <node x="3236.0" y="805.0">org.itstep.Main.ChangeInformationEmployee.ComChangeDepartment</node>
+    <node x="1473.4166666666667" y="535.0">org.itstep.Main.AddNewDepartment</node>
+    <node x="1783.3541666666667" y="0.0">org.itstep.Main</node>
+    <node x="816.0" y="805.0">org.itstep.Main.PrintReport.ComPrintTenMostExpensiveEmployeesBySalary</node>
+    <node x="0.0" y="904.0">org.itstep.Organization</node>
+    <node x="2288.0" y="805.0">org.itstep.Main.ChangeInformationEmployee.ComNotACommand</node>
+    <node x="0.0" y="805.0">org.itstep.Main.PrintReport.ComNotACommand</node>
+    <node x="387.0" y="904.0">org.itstep.Employee</node>
+    <node x="493.25" y="681.0">org.itstep.Main.PrintReport.CommandPrintReport</node>
+    <node x="258.0" y="805.0">org.itstep.Main.PrintReport.ComPrintStructureOrganization</node>
+    <node x="2500.25" y="256.5">org.itstep.Main.CommandOrganization</node>
+    <node x="558.0" y="535.0">org.itstep.Main.PrintReport</node>
+    <node x="2604.0" y="805.0">org.itstep.Main.ChangeInformationEmployee.ComChangePosition</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComNotACommand" target="org.itstep.Main.ChangeInformationEmployee.CommandChangeInf">
+      <point x="74.0" y="-27.0" />
+      <point x="2510.0" y="785.0" />
+      <point x="2630.464285714286" y="785.0" />
+      <point x="-42.28571428571422" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.FindEmployee" target="org.itstep.Main">
+      <point x="-59.5" y="-49.0" />
+      <point x="359.5" y="74.0" />
+      <point x="1790.8041666666668" y="74.0" />
+      <point x="-67.04999999999995" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.CommandChangeInf" target="org.itstep.Main.ChangeInformationEmployee">
+      <point x="0.0" y="-27.0" />
+      <point x="2672.75" y="661.0" />
+      <point x="2736.5" y="661.0" />
+      <point x="-15.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComNotACommand" target="org.itstep.Main.PrintReport">
+      <point x="-59.5" y="-27.0" />
+      <point x="59.5" y="641.0" />
+      <point x="577.8333333333335" y="641.0" />
+      <point x="-99.16666666666652" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeName" target="org.itstep.Main.ChangeInformationEmployee">
+      <point x="-74.0" y="-27.0" />
+      <point x="1730.0" y="631.0" />
+      <point x="2643.5" y="631.0" />
+      <point x="-108.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.Exit" target="org.itstep.Main">
+      <point x="-59.5" y="-27.0" />
+      <point x="1790.9166666666667" y="453.0" />
+      <point x="1793.1041666666667" y="453.0" />
+      <point x="1793.1041666666667" y="114.0" />
+      <point x="1850.4041666666667" y="114.0" />
+      <point x="-7.4500000000000455" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComPrintTopTenEmployeesByYearsInTheOrganization" target="org.itstep.Main.PrintReport">
+      <point x="106.0" y="-27.0" />
+      <point x="1530.0" y="641.0" />
+      <point x="776.1666666666665" y="641.0" />
+      <point x="99.16666666666652" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComPrintTopTenEmployeesByYearsInTheOrganization" target="org.itstep.Main.PrintReport.CommandPrintReport">
+      <point x="-106.0" y="-27.0" />
+      <point x="1318.0" y="765.0" />
+      <point x="707.4499999999998" y="765.0" />
+      <point x="95.19999999999993" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeContactNumber" target="org.itstep.Main.ChangeInformationEmployee.CommandChangeInf">
+      <point x="-74.0" y="-27.0" />
+      <point x="2994.0" y="775.0" />
+      <point x="2715.035714285714" y="775.0" />
+      <point x="42.28571428571422" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComPrintTenMostExpensiveEmployeesBySalary" target="org.itstep.Main.PrintReport">
+      <point x="94.0" y="-27.0" />
+      <point x="1098.0" y="651.0" />
+      <point x="736.5" y="651.0" />
+      <point x="59.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.CommandPrintReport" target="org.itstep.Main.PrintReport">
+      <point x="0.0" y="-27.0" />
+      <point x="612.25" y="661.0" />
+      <point x="657.1666666666665" y="661.0" />
+      <point x="-19.83333333333337" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee" target="org.itstep.Main.CommandOrganization">
+      <point x="-62.0" y="-27.0" />
+      <point x="2690.0" y="493.0" />
+      <point x="2634.125" y="493.0" />
+      <point x="14.875" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport" target="org.itstep.Main">
+      <point x="-59.5" y="-27.0" />
+      <point x="617.5" y="94.0" />
+      <point x="1820.6041666666667" y="94.0" />
+      <point x="-37.25" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.AddNewEmployee" target="org.itstep.Main">
+      <point x="59.5" y="-38.5" />
+      <point x="3332.5" y="84.0" />
+      <point x="1910.0041666666668" y="84.0" />
+      <point x="52.15000000000009" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeDepartment" target="org.itstep.Main.ChangeInformationEmployee">
+      <point x="74.0" y="-27.0" />
+      <point x="3458.0" y="641.0" />
+      <point x="2829.5" y="641.0" />
+      <point x="77.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.AddNewDepartment" target="org.itstep.Main.CommandOrganization">
+      <point x="59.5" y="-27.0" />
+      <point x="1651.9166666666667" y="483.0" />
+      <point x="2574.625" y="483.0" />
+      <point x="-44.625" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangePosition" target="org.itstep.Main.ChangeInformationEmployee.CommandChangeInf">
+      <point x="-74.0" y="-27.0" />
+      <point x="2678.0" y="785.0" />
+      <point x="2672.75" y="785.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComPrintTenMostExpensiveEmployeesBySalary" target="org.itstep.Main.PrintReport.CommandPrintReport">
+      <point x="-94.0" y="-27.0" />
+      <point x="910.0" y="775.0" />
+      <point x="659.8499999999999" y="775.0" />
+      <point x="47.59999999999991" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.CommandOrganization" target="org.itstep.Main">
+      <point x="0.0" y="-27.0" />
+      <point x="2619.25" y="114.0" />
+      <point x="1865.3041666666668" y="114.0" />
+      <point x="7.4500000000000455" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeSalary" target="org.itstep.Main.ChangeInformationEmployee.CommandChangeInf">
+      <point x="-74.0" y="-27.0" />
+      <point x="3626.0" y="755.0" />
+      <point x="2799.6071428571427" y="755.0" />
+      <point x="126.85714285714266" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.COMMAND" target="org.itstep.Main">
+      <point x="0.0" y="-149.5" />
+      <point x="488.5" y="84.0" />
+      <point x="1805.7041666666667" y="84.0" />
+      <point x="-52.15000000000009" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeSex" target="org.itstep.Main.ChangeInformationEmployee">
+      <point x="-74.0" y="-27.0" />
+      <point x="2046.0" y="641.0" />
+      <point x="2674.5" y="641.0" />
+      <point x="-77.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.CommandNotFound" target="org.itstep.Main.CommandOrganization">
+      <point x="-59.5" y="-27.0" />
+      <point x="2955.5" y="483.0" />
+      <point x="2663.875" y="483.0" />
+      <point x="44.625" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ToFireEmployee" target="org.itstep.Main">
+      <point x="59.5" y="-27.0" />
+      <point x="3590.5" y="74.0" />
+      <point x="1924.9041666666667" y="74.0" />
+      <point x="67.04999999999995" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.Exit" target="org.itstep.Main.CommandOrganization">
+      <point x="59.5" y="-27.0" />
+      <point x="1909.9166666666667" y="493.0" />
+      <point x="2604.375" y="493.0" />
+      <point x="-14.875" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComPrintAverageSalary" target="org.itstep.Main.PrintReport.CommandPrintReport">
+      <point x="-59.5" y="-27.0" />
+      <point x="617.5" y="785.0" />
+      <point x="612.25" y="785.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeDepartment" target="org.itstep.Main.ChangeInformationEmployee.CommandChangeInf">
+      <point x="-74.0" y="-27.0" />
+      <point x="3310.0" y="765.0" />
+      <point x="2757.3214285714284" y="765.0" />
+      <point x="84.57142857142844" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComPrintAverageSalary" target="org.itstep.Main.PrintReport">
+      <point x="59.5" y="-27.0" />
+      <point x="736.5" y="785.0" />
+      <point x="741.75" y="785.0" />
+      <point x="741.75" y="661.0" />
+      <point x="696.8333333333335" y="661.0" />
+      <point x="19.833333333333485" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComNotACommand" target="org.itstep.Main.PrintReport.CommandPrintReport">
+      <point x="59.5" y="-27.0" />
+      <point x="178.5" y="775.0" />
+      <point x="517.05" y="775.0" />
+      <point x="-95.20000000000005" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.FindEmployee" target="org.itstep.Main.CommandOrganization">
+      <point x="59.5" y="-49.0" />
+      <point x="478.5" y="463.0" />
+      <point x="2515.125" y="463.0" />
+      <point x="-104.125" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeName" target="org.itstep.Main.ChangeInformationEmployee.CommandChangeInf">
+      <point x="74.0" y="-27.0" />
+      <point x="1878.0" y="765.0" />
+      <point x="2545.8928571428573" y="765.0" />
+      <point x="-126.85714285714266" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangePosition" target="org.itstep.Main.ChangeInformationEmployee">
+      <point x="74.0" y="-27.0" />
+      <point x="2826.0" y="785.0" />
+      <point x="2831.25" y="785.0" />
+      <point x="2831.25" y="661.0" />
+      <point x="2767.5" y="661.0" />
+      <point x="15.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComPrintStructureOrganization" target="org.itstep.Main.PrintReport.CommandPrintReport">
+      <point x="70.0" y="-27.0" />
+      <point x="468.0" y="785.0" />
+      <point x="564.6500000000001" y="785.0" />
+      <point x="-47.60000000000002" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeSalary" target="org.itstep.Main.ChangeInformationEmployee">
+      <point x="74.0" y="-27.0" />
+      <point x="3774.0" y="631.0" />
+      <point x="2860.5" y="631.0" />
+      <point x="108.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee" target="org.itstep.Main">
+      <point x="62.0" y="-27.0" />
+      <point x="2814.0" y="493.0" />
+      <point x="2809.3125" y="493.0" />
+      <point x="2809.3125" y="104.0" />
+      <point x="1880.2041666666669" y="104.0" />
+      <point x="22.350000000000136" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ToFireEmployee" target="org.itstep.Main.CommandOrganization">
+      <point x="-59.5" y="-27.0" />
+      <point x="3471.5" y="463.0" />
+      <point x="2723.375" y="463.0" />
+      <point x="104.125" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeSex" target="org.itstep.Main.ChangeInformationEmployee.CommandChangeInf">
+      <point x="74.0" y="-27.0" />
+      <point x="2194.0" y="775.0" />
+      <point x="2588.1785714285716" y="775.0" />
+      <point x="-84.57142857142844" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.AddNewEmployee" target="org.itstep.Main.CommandOrganization">
+      <point x="-59.5" y="-38.5" />
+      <point x="3213.5" y="473.0" />
+      <point x="2693.625" y="473.0" />
+      <point x="74.375" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.AddNewDepartment" target="org.itstep.Main">
+      <point x="-59.5" y="-27.0" />
+      <point x="1532.9166666666667" y="104.0" />
+      <point x="1835.5041666666668" y="104.0" />
+      <point x="-22.34999999999991" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport.ComPrintStructureOrganization" target="org.itstep.Main.PrintReport">
+      <point x="-70.0" y="-27.0" />
+      <point x="328.0" y="651.0" />
+      <point x="617.5" y="651.0" />
+      <point x="-59.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.PrintReport" target="org.itstep.Main.CommandOrganization">
+      <point x="59.5" y="-27.0" />
+      <point x="736.5" y="473.0" />
+      <point x="2544.875" y="473.0" />
+      <point x="-74.375" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComChangeContactNumber" target="org.itstep.Main.ChangeInformationEmployee">
+      <point x="74.0" y="-27.0" />
+      <point x="3142.0" y="651.0" />
+      <point x="2798.5" y="651.0" />
+      <point x="46.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.ChangeInformationEmployee.ComNotACommand" target="org.itstep.Main.ChangeInformationEmployee">
+      <point x="-74.0" y="-27.0" />
+      <point x="2362.0" y="651.0" />
+      <point x="2705.5" y="651.0" />
+      <point x="-46.5" y="27.0" />
+    </edge>
+    <edge source="org.itstep.Main.CommandNotFound" target="org.itstep.Main">
+      <point x="59.5" y="-27.0" />
+      <point x="3074.5" y="94.0" />
+      <point x="1895.1041666666667" y="94.0" />
+      <point x="37.25" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.6000000000000001" x="1914.4484126984134" y="632.8492063492058" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Inner Classes</Category>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Properties</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

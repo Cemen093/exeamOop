@@ -1,12 +1,8 @@
 package org.itstep;
-
-import org.itstep.exeption.ExceptionEmployeeNotFound;
+import org.itstep.enam.Position;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-
-import static org.itstep.Organization.dividingRow;
 
 public class Department {
     private String nameDepartment;
