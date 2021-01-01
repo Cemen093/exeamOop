@@ -1,10 +1,8 @@
 package org.itstep.command.organization;
 
-import org.itstep.Employee;
 import org.itstep.Organization;
 import org.itstep.Position;
 
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -18,31 +16,25 @@ public class FindEmployee implements CommandOrganization {
         // ФИО, должности, названию отдела, ФИО начальника
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Варианты: ФИО, должности, названию отдела, ФИО начальника");
+        System.out.println("Варианты: ФИО, должности, названию отдела, ФИО начальника, выход");
         System.out.println("По какому параметру искать сотрудников >> ");
 
-        boolean checkInput = false;
+        boolean checkInput = true;
+        do {
+            switch (scanner.nextLine().toLowerCase()) {
+                case "фио" -> organization.printEmployeesForName(getStr("ФИО"));
+                case "должности" -> organization.printEmployeesForPosition(getPosition());
+                case "названию отдела" -> organization.printEmployeesForNameDepartment(getStr("название отдела"));
+                case "фио начальника" -> organization.printEmployeesForNameChief(getStr("ФИО начальника"));
+                case "выход" -> checkInput = false;
+                default -> System.out.println("Не корректная команда");
+            }
 
-        List<Employee> employees;
 
-        switch (scanner.nextLine().toLowerCase()){
-            case "ФИО":
-                employees = organization.getEmployeesForName(getStr("ФИО"));
-                break;
-            case "должности":
-                employees = organization.getEmployeesForPosition(getPosition());
-                break;
-            case "названию отдела":
-                employees = organization.getEmployeesForNameDepartment(getStr("название отдела"));
-                break;
-            case "ФИО начальника":
-                employees = organization.getEmployeesForNameChief(getStr("ФИО начальника"));
-                break;
-            default:
-                break;
-        }
+        }while (checkInput);
 
     }
+
     private String getStr(String str){
         Scanner scanner = new Scanner(System.in);
         String str2 = "";

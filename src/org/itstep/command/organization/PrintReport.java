@@ -1,10 +1,8 @@
 package org.itstep.command.organization;
 
-import org.itstep.Employee;
 import org.itstep.Organization;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class PrintReport implements CommandOrganization{
     //риложение должно иметь возможность создавать следующие отчеты: структура организации
@@ -13,23 +11,46 @@ public class PrintReport implements CommandOrganization{
     //топ–10 самых преданных сотрудников по количеству лет работы в организации.
 
     @Override
-    public void execute(Organization organization, String... str) {
-        System.out.println("Тут будут печататься различные отчеты");
-        System.out.println(organization);
+    public void execute(Organization organization, String... arg) {
+        Map<String, CommandPrintReport> map = new HashMap<>(){
+            @Override
+            public CommandPrintReport get(Object key) {
+                CommandPrintReport com = super.get(key);
+                return com == null ? new ComNotACommand(): com;
+            }
+        };
+        map.put("структура компании" , new ComPrintStructureOrganization());
+        map.put("средняя зарплата" , new ComPrintAverageSalary());
+        map.put("топ 10 по зарплате" , new ComPrintTenMostExpensiveEmployeesBySalary());
+        map.put("топ 10 по выслуге" , new ComPrintTopTenEmployeesByYearsInTheOrganization());
 
-        System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        String str = "";
+        do {
+            System.out.print("Доступные комманды: ");
+            for (String s :
+                    map.keySet()) {
+                System.out.print(s + ", ");
+            }
+            System.out.print("выход\n >> ");
+
+            str = scanner.nextLine().toLowerCase(Locale.ROOT);
+            if (str.equals("выход")){
+                break;
+            }
+            map.get(str).execute(organization);
+        }while (true);
     }
 
     interface CommandPrintReport{
         void execute(Organization organization, String... arg);
     }
 
-    class ComPrintStructureOrganization implements CommandPrintReport{
-
+    static class ComPrintStructureOrganization implements CommandPrintReport{
         @Override
         public void execute(Organization organization, String... arg) {
             //структура организации
-            System.out.println(organization);
+            organization.printStructOrganization();
         }
     }
 
@@ -39,11 +60,11 @@ public class PrintReport implements CommandOrganization{
             //средняя зарплата по организации и по отделам
             System.out.print("Средняя зарплата в организации: ");
             System.out.println(organization.getAverageSalary());
-            System.out.print("Средняя зарплата в организации: ");
+            System.out.println("Средняя зарплата в организации: ");
             String[] name = organization.getNamesDepartments();
             int[] num = organization.getAverageSalaryDepartments();
             for (int i = 0; i < name.length; i++) {
-                System.out.println("Департамент: " + name[i] + "средняя зарплата" + num[i]);
+                System.out.println("Департамент: " + name[i] + " средняя зарплата " + num[i]);
             }
             System.out.println();
         }
@@ -52,15 +73,22 @@ public class PrintReport implements CommandOrganization{
     class ComPrintTenMostExpensiveEmployeesBySalary implements CommandPrintReport{
         @Override
         public void execute(Organization organization, String... arg) {
-            List<Employee> employees = organization.getTenMostExpensiveEmployeesBySalary();
-            System.out.println(employees);
+            organization.printTenMostExpensiveEmployeesBySalary();
+
         }
     }
 
-    class ComPrintTopTenEmployeesByYearsInTheOrganization implements CommandOrganization{
+    class ComPrintTopTenEmployeesByYearsInTheOrganization implements CommandPrintReport{
         @Override
         public void execute(Organization organization, String... str) {
-            System.out.println(organization.getTopTenEmployeesByYearsInTheOrganization());
+            organization.printTopTenEmployeesByYearsInTheOrganization();
+        }
+    }
+
+    class ComNotACommand implements CommandPrintReport{
+        @Override
+        public void execute(Organization organization, String... str) {
+            System.out.println("Не комманда");
         }
     }
 }

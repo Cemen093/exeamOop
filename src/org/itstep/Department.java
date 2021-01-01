@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import static org.itstep.Organization.dividingRow;
+
 public class Department {
     private String nameDepartment;
     private Employee chief;
@@ -18,7 +20,12 @@ public class Department {
     }
 
     public void addEmployee(Employee employee){
-        employees.add(employee);
+        if (employee.getPosition() == Position.CHEF){
+            chief = employee;// FIXME: 01.01.2021 Шефа увольняем?
+        }else {
+            employees.add(employee);
+        }
+        employee.setDepartment(this);
     }
     
     public boolean isEmployeeExist(Employee emp){
@@ -138,4 +145,5 @@ public class Department {
         }
         return num != 0 ? averageSalary / num: 0;
     }
+
 }

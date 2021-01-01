@@ -10,7 +10,7 @@ public class EmployeeAccountingSystem {
     //Основная задача проекта: хранить информацию о сотрудниках организации и структуре организации.
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Organization organization = new Organization("Кукушкино", "https://qna.habr.com/");
+        Organization organization = Organization.getWorkOrganization();
 
         HashMap<String, CommandOrganization> commandOrganization = new HashMap<>(){
             @Override

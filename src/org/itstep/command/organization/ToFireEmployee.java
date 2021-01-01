@@ -18,10 +18,9 @@ public class ToFireEmployee implements CommandOrganization{
             arg[i] = scanner.nextLine();
        }
 
-        System.out.println("Введите дату найма сотрудника (день, месяц, год) череза пробкл >>");
-        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Введите дату найма сотрудника (день, месяц, год) череза пробел >>");
         for (int i = 0; i < 3; i++) {
-            arg2[i] = scanner1.nextInt();// FIXME: 31.12.2020 Проверки
+            arg2[i] = Integer.parseInt(scanner.next());// FIXME: 31.12.2020 Проверки
         }
 
         if (organization.toFireEmployee(new Employee(arg[0], arg[1], null, arg2, 0, null, null, null))){
