@@ -5,9 +5,7 @@ import org.itstep.Organization;
 import org.itstep.Position;
 import org.itstep.Sex;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 import static org.itstep.Sex.MEN;
 import static org.itstep.Sex.WOMEN;
@@ -27,11 +25,18 @@ public class ChangeInformationEmployee implements CommandOrganization {
             arg[i] = scanner.nextLine();
         }
 
-        System.out.println("Введите дату найма сотрудника (день, месяц, год) череза пробкл >>");
-        Scanner scanner1 = new Scanner(System.in);
-        for (int i = 0; i < 3; i++) {
-            arg2[i] = scanner1.nextInt();// FIXME: 31.12.2020 Проверки
-        }
+        do {
+            System.out.println("Введите дату найма сотрудника (день, месяц, год) череза пробел >>");
+            Scanner scanner1 = new Scanner(System.in);
+            try {
+                for (int i = 0; i < 3; i++) {
+                    arg2[i] = scanner1.nextInt();
+                }
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Не корректный ввод");
+            }
+        }while (true);
 
         Employee employee = organization.getEmployee(
                 new Employee(arg[0], arg[1], null, arg2, 0, null, null, null));
@@ -39,36 +44,36 @@ public class ChangeInformationEmployee implements CommandOrganization {
         if (employee == null) {
             System.out.println("Сотрудник не найден");
         } else {
-            System.out.println(employee);
 
-            Map<String, CommandChangeInf> command = new HashMap<>(){
+            Map<String, CommandChangeInf> command = new HashMap<>() {
                 @Override
                 public CommandChangeInf get(Object key) {
                     CommandChangeInf com = super.get(key);
-                    return com != null ? com: new ComNotACommand();
+                    return com != null ? com : new ComNotACommand();
                 }
             };
-            command.put("изменить имя", new ComChangeName());
-            command.put("изменить номер телефона ", new ComChangeName());
-            command.put("изменить зарплату", new ComChangeName());
-            command.put("изменить пол", new ComChangeName());
-            command.put("изменить должность", new ComChangeName());
-            command.put("изменить департамент", new ComChangeName());
+            command.put("имя", new ComChangeName());
+            command.put("номер телефона", new ComChangeContactNumber());
+            command.put("зарплату", new ComChangeSalary());
+            command.put("пол", new ComChangeSex());
+            command.put("должность", new ComChangePosition());
+            command.put("департамент", new ComChangeDepartment());
 
             do {
+                System.out.println(employee + "\n");
                 System.out.print("Доступные варианты: ");
                 for (String s :
                         command.keySet()) {
                     System.out.print(s + ", ");
                 }
-                System.out.println();
-                System.out.println("Какую информацию вы хотите изменить о сотруднике:");
+                System.out.println("выход");
+                System.out.print("Какую информацию вы хотите изменить о сотруднике?\n>> ");
                 String line = scanner.nextLine();
-                if (line.equals("выход")){
+                if (line.equals("выход")) {
                     break;//не уверен как правильно выйти из комманды если только не передавать в нее объект с bool
                 }
                 command.get(line).execute(employee, organization);
-            }while (true);
+            } while (true);
 
         }
     }
@@ -122,17 +127,17 @@ public class ChangeInformationEmployee implements CommandOrganization {
                 System.out.print("Доступные варианты: ");
                 for (Sex s :
                         Sex.values()) {
-                    System.out.print(s.getSex());
+                    System.out.print(s.getSex() + ", ");
                 }
 
                 System.out.print("Введите новый пол сотрудника >> ");
                 String string = scanner.nextLine();
 
-                if (string.equals(MEN.getSex() + ", ")){
+                if (string.equals(MEN.getSex())) {
                     employee.setSex(MEN);
                     return;
                 }
-                if (string.equals(WOMEN.getSex())){
+                if (string.equals(WOMEN.getSex())) {
                     employee.setSex(WOMEN);
                     return;
                 }
@@ -157,13 +162,13 @@ public class ChangeInformationEmployee implements CommandOrganization {
 
                 for (Position p :
                         Position.values()) {
-                    if (p.getPosition().equals(string)){
+                    if (p.getPosition().equals(string)) {
                         employee.setPosition(p);
                         return;
                     }
                 }
                 System.out.println("Такая позиция не найдена");
-            }while (true);
+            } while (true);
         }
     }
 
@@ -185,18 +190,18 @@ public class ChangeInformationEmployee implements CommandOrganization {
 
                 for (String s :
                         departments) {
-                    if (s.equals(nameNewDepartment)){
-                        organization.changeDepartmentEmployee(employee , nameNewDepartment);
+                    if (s.equals(nameNewDepartment)) {
+                        organization.changeDepartmentEmployee(employee, nameNewDepartment);
                         return;
                     }
                 }
 
                 System.out.println("Такая депортамент не найден не найдена");
-            }while (true);
+            } while (true);
         }
     }
 
-    private class ComNotACommand implements CommandChangeInf{
+    private class ComNotACommand implements CommandChangeInf {
         @Override
         public void execute(Employee employee, Organization organization, String... str) {
             System.out.println("Не является коммандой");

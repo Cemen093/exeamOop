@@ -21,7 +21,7 @@ public class Department {
 
     public void addEmployee(Employee employee){
         if (employee.getPosition() == Position.CHEF){
-            chief = employee;// FIXME: 01.01.2021 Шефа увольняем?
+            chief = employee;// Шефа увольняем?
         }else {
             employees.add(employee);
         }
@@ -29,7 +29,7 @@ public class Department {
     }
     
     public boolean isEmployeeExist(Employee emp){
-        if (chief.equals(emp)){
+        if (chief != null || chief.equals(emp)){
             return true;
         }
         for (Employee e: employees) {
@@ -106,7 +106,7 @@ public class Department {
 
     public boolean toFireEmployee(Employee e) {
         if (chief.equals(e)){
-            chief = null;// FIXME: 31.12.2020
+            chief = null;
             return true;
         }
         for (Employee emp :

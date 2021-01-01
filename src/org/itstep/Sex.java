@@ -1,7 +1,7 @@
 package org.itstep;
 
 public enum Sex {
-    MEN("муржской"), WOMEN("женский");
+    MEN("мужской"), WOMEN("женский");
     String sex;
 
     Sex(String sex) {

@@ -3,6 +3,7 @@ package org.itstep.command.organization;
 import org.itstep.*;
 import org.itstep.exeption.ExceptionDepartmentNotFound;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import static org.itstep.Position.*;
@@ -34,15 +35,30 @@ public class AddNewEmployee implements CommandOrganization {
         System.out.print("Введите номер телефона сотрудника >> ");
         contactNumber = scanner.nextLine();
 
-        System.out.print("Введите дату найма сотрудника (день, месяц, год через пробел) >> ");
         hiringDate = new int[3];
-        Scanner scanner1 = new Scanner(System.in);
-        for (int i = 0; i < hiringDate.length; i++) {
-            hiringDate[i] = scanner1.nextInt(); // FIXME: 31.12.2020 Проверки
-        }
+        do {
+            System.out.println("Введите дату найма сотрудника (день, месяц, год) череза пробел >>");
+            Scanner scanner1 = new Scanner(System.in);
+            try {
+                for (int i = 0; i < 3; i++) {
+                    hiringDate[i] = scanner1.nextInt();
+                }
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Не корректный ввод");
+            }
+        } while (true);
 
-        System.out.print("Введите зарплату сотрудника >> ");
-        salary = Integer.parseInt(scanner.nextLine());// FIXME: 30.12.2020 доп проверка не помешала бы
+
+        do {
+            System.out.print("Введите зарплату сотрудника >> ");
+            try {
+                salary = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Не корректный ввод");
+            }
+        } while (true);
 
         boolean checkInput = false;
         do {

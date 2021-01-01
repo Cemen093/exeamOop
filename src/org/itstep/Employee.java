@@ -1,11 +1,12 @@
 package org.itstep;
 
+import java.util.Arrays;
 import java.util.Formatter;
 import java.util.Objects;
 
 public class Employee {
     private String name;//ФИО сотрудника
-    private final String dateOfBirth;//дату рождения
+    private final String dateOfBirth;//дату рождения // FIXME: 01.01.2021 Не удобно
     private String contactNumber;//контактный телефон
     private final int[] hiringDate;//дату приема на работу
     private int salary;//зарплату
@@ -85,26 +86,6 @@ public class Employee {
         this.department = department;
     }
 
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", dateOfBirth='" + dateOfBirth + '\'' +
-                ", contactNumber='" + contactNumber + '\'' +
-                ", hiringDate='" + hiringDate + '\'' +
-                ", salary=" + salary +
-                ", sex=" + sex +
-                ", position=" + position +
-                ", department=" + department.getNameDepartment() +
-                ", chief=" + (department.getChief() != null ? department.getChief().getName(): "шефа нет") +
-                '}';
-    }/*
-
-    public String[] getString(){
-        return new String[]{name, dateOfBirth, contactNumber, "" + hiringDate[0] + '.' + hiringDate[1] + '.' + hiringDate[2],
-         "" + salary, sex.getSex(), position.getPosition()};
-    }*/
-
     public String getString(){
         Formatter f = new Formatter();
         f.format("| %-17s | %-20s | %-20s | %-15s | %-15s | %-15s | %-15s |\n",
@@ -124,5 +105,20 @@ public class Employee {
     @Override
     public int hashCode() {
         return Objects.hash(name, dateOfBirth, hiringDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "name='" + name + '\'' +
+                ", dateOfBirth='" + dateOfBirth + '\'' +
+                ", contactNumber='" + contactNumber + '\'' +
+                ", hiringDate=" + Arrays.toString(hiringDate) +
+                ", salary=" + salary +
+                ", sex=" + sex.getSex() +
+                ", position=" + position.getPosition() +
+                ", chief=" + getChief().getName() +
+                ", department=" + department.getNameDepartment() +
+                '}';
     }
 }
